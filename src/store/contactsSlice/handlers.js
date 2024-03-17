@@ -3,6 +3,18 @@ export const handleFulfilledContacts = (state, { payload }) => {
   state.contacts.isLoading = false;
 };
 
+export const handleAddedContacts = (state, { payload }) => {
+  state.contacts.items.push(payload);
+  // state.contacts.items = payload;
+  state.contacts.isLoading = false;
+};
+
+export const handleDeletedContacts = (state, { payload }) => {
+  // state.contacts.items = payload;
+  state.contacts = state.contacts.filter(el => el.id !== payload);
+  state.contacts.isLoading = false;
+};
+
 export const handlePending = state => {
   state.contacts.isLoading = true;
   state.contacts.error = '';

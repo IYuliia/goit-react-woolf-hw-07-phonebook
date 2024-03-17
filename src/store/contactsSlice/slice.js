@@ -5,6 +5,8 @@ import {
   fetchContactsThunk,
 } from './thunks';
 import {
+  handleAddedContacts,
+  handleDeletedContacts,
   handleFulfilledContacts,
   handlePending,
   handleRejected,
@@ -34,8 +36,8 @@ const contactsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchContactsThunk.fulfilled, handleFulfilledContacts)
-      .addCase(addContactThunk.fulfilled, handleFulfilledContacts)
-      .addCase(deleteContactThunk.fulfilled, handleFulfilledContacts)
+      .addCase(addContactThunk.fulfilled, handleAddedContacts)
+      .addCase(deleteContactThunk.fulfilled, handleDeletedContacts)
       .addMatcher(action => action.type.endsWith('pending'), handlePending)
       .addMatcher(action => action.type.endsWith('rejected'), handleRejected);
   },
