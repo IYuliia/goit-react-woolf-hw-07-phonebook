@@ -10,6 +10,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
 
   const deleteContactHandler = id => {
+    console.log('id', id);
     dispatch(deleteContactThunk(id));
   };
 

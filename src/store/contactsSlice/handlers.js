@@ -5,13 +5,11 @@ export const handleFulfilledContacts = (state, { payload }) => {
 
 export const handleAddedContacts = (state, { payload }) => {
   state.contacts.items.push(payload);
-  // state.contacts.items = payload;
   state.contacts.isLoading = false;
 };
 
 export const handleDeletedContacts = (state, { payload }) => {
-  // state.contacts.items = payload;
-  state.contacts = state.contacts.filter(el => el.id !== payload);
+  state.contacts.items = state.contacts.items.filter(el => el.id !== payload);
   state.contacts.isLoading = false;
 };
 
