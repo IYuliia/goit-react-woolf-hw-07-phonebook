@@ -15,9 +15,7 @@ export const addContactApi = async contact => {
 };
 
 export const deleteContactApi = async id => {
-  const { data } = await instanceContacts.delete('contacts', {
-    params: { id },
-  });
+  const { data } = await instanceContacts.delete(`contacts/${id}`);
   console.log('Response after deleting contact:', data);
   return data;
 };
